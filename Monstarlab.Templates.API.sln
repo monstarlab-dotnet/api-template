@@ -1,0 +1,49 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31825.309
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Monstarlab.Templates.API.Web", "Monstarlab.Templates.API.Web\Monstarlab.Templates.API.Web.csproj", "{5AF25A68-BA97-4840-ACD4-1939A676E69A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Monstarlab.Templates.API.Infrastructure", "Monstarlab.Templates.API.Infrastructure\Monstarlab.Templates.API.Infrastructure.csproj", "{16955470-1D8F-471A-B625-C86D5BF5A0E0}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Monstarlab.Templates.API.Integrations", "Monstarlab.Templates.API.Integrations\Monstarlab.Templates.API.Integrations.csproj", "{A56E90D5-49A8-446A-B368-419B541FA4A5}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Monstarlab.Templates.API.Domain", "Monstarlab.Templates.API.Domain\Monstarlab.Templates.API.Domain.csproj", "{24219700-5888-492A-BFB5-AF6BC4563EB4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Monstarlab.Templates.API.BusinessLogic", "Monstarlab.Templates.API.BusinessLogic\Monstarlab.Templates.API.BusinessLogic.csproj", "{F5A2FBE9-03CC-451C-AF95-EC8CA8B4EF47}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5AF25A68-BA97-4840-ACD4-1939A676E69A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5AF25A68-BA97-4840-ACD4-1939A676E69A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5AF25A68-BA97-4840-ACD4-1939A676E69A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5AF25A68-BA97-4840-ACD4-1939A676E69A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{16955470-1D8F-471A-B625-C86D5BF5A0E0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{16955470-1D8F-471A-B625-C86D5BF5A0E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{16955470-1D8F-471A-B625-C86D5BF5A0E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{16955470-1D8F-471A-B625-C86D5BF5A0E0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A56E90D5-49A8-446A-B368-419B541FA4A5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A56E90D5-49A8-446A-B368-419B541FA4A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A56E90D5-49A8-446A-B368-419B541FA4A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A56E90D5-49A8-446A-B368-419B541FA4A5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{24219700-5888-492A-BFB5-AF6BC4563EB4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{24219700-5888-492A-BFB5-AF6BC4563EB4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{24219700-5888-492A-BFB5-AF6BC4563EB4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{24219700-5888-492A-BFB5-AF6BC4563EB4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F5A2FBE9-03CC-451C-AF95-EC8CA8B4EF47}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F5A2FBE9-03CC-451C-AF95-EC8CA8B4EF47}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F5A2FBE9-03CC-451C-AF95-EC8CA8B4EF47}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F5A2FBE9-03CC-451C-AF95-EC8CA8B4EF47}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1812CE5F-986A-48DA-B0AA-E1ECC632A46F}
+	EndGlobalSection
+EndGlobal
