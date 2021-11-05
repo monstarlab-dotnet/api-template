@@ -6,4 +6,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Monstarlab.Templates.API.Domain\Monstarlab.Templates.API.Domain.csproj" />
+  </ItemGroup>
+
 </Project>
