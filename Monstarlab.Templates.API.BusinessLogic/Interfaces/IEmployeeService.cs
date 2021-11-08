@@ -4,6 +4,6 @@ namespace Monstarlab.Templates.API.BusinessLogic.Interfaces
 {
     public interface IEmployeeService
     {
-        Task<IEnumerable<Employee>> GetEmployees();
+        Task<IEnumerable<Employee>> GetEmployeesAsync();
     }
 }

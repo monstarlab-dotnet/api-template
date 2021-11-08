@@ -2,8 +2,8 @@
 
 namespace Monstarlab.Templates.API.Domain.Interfaces
 {
-    public interface IEmployeeRepository
+    public interface IDepartmentRepository
     {
-        Task<IEnumerable<Employee>> GetEmployeesAsync();
+        Task<Department> GetDepartmentsAsync();
     }
 }

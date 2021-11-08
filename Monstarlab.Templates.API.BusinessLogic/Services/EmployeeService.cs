@@ -13,7 +13,7 @@ namespace Monstarlab.Templates.API.BusinessLogic.Services
             EmployeeRepository = employeeRepository ?? throw new ArgumentNullException(nameof(employeeRepository));
         }
 
-        public Task<IEnumerable<Employee>> GetEmployees()
+        public Task<IEnumerable<Employee>> GetEmployeesAsync()
         {
             throw new NotImplementedException();
         }
