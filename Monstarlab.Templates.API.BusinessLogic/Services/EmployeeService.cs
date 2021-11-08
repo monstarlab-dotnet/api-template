@@ -13,9 +13,9 @@ namespace Monstarlab.Templates.API.BusinessLogic.Services
             EmployeeRepository = employeeRepository ?? throw new ArgumentNullException(nameof(employeeRepository));
         }
 
-        public async Task<IEnumerable<Employee>> GetAllEmployeesAsync()
+        public async Task<IEnumerable<Employee>> GetAllEmployeesAsync(int page, int pageSize)
         {
-            var employees = await EmployeeRepository.GetEmployeesAsync();
+            var employees = await EmployeeRepository.GetEmployeesAsync(page, pageSize);
 
             return employees;
         }

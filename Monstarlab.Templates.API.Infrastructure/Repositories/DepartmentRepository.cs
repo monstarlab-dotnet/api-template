@@ -1,5 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Monstarlab.Templates.API.Domain.Interfaces;
+﻿using Monstarlab.Templates.API.Domain.Interfaces;
 using Monstarlab.Templates.API.Domain.Models;
 using Monstarlab.Templates.API.Infrastructure.Context;
 
@@ -11,11 +10,6 @@ namespace Monstarlab.Templates.API.Infrastructure.Repositories
         {
         }
 
-        public async Task<IEnumerable<Department>> GetDepartmentsAsync()
-        {
-            var departments = await Context.Departments.ToListAsync();
-
-            return departments;
-        }
+        public Task<IEnumerable<Department>> GetDepartmentsAsync(int page, int pageSize) => GetAll<Department>(Context.Departments, page, pageSize);
     }
 }

@@ -13,9 +13,9 @@ namespace Monstarlab.Templates.API.BusinessLogic.Services
             Repository = repository ?? throw new ArgumentNullException(nameof(repository));
         }
 
-        public async Task<IEnumerable<Department>> GetAllDepartmentsAsync()
+        public async Task<IEnumerable<Department>> GetAllDepartmentsAsync(int page, int pageSize)
         {
-            var departments = await Repository.GetDepartmentsAsync();
+            var departments = await Repository.GetDepartmentsAsync(page, pageSize);
 
             return departments;
         }

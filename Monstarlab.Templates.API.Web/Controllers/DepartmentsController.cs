@@ -16,9 +16,9 @@ namespace Monstarlab.Templates.API.Web.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<DepartmentDto>>> GetAll()
+        public async Task<ActionResult<IEnumerable<DepartmentDto>>> GetAll(int page = 1, int pageSize = 20)
         {
-            var departments = await DepartmentService.GetAllDepartmentsAsync();
+            var departments = await DepartmentService.GetAllDepartmentsAsync(page, pageSize);
 
             var mappedDepartments = Mapper.Map<IEnumerable<DepartmentDto>>(departments);
 

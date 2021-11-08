@@ -16,9 +16,9 @@ namespace Monstarlab.Templates.API.Web.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<EmployeeDto>>> GetAll()
+        public async Task<ActionResult<IEnumerable<EmployeeDto>>> GetAll(int page = 1, int pageSize = 20)
         {
-            var employees = await EmployeeService.GetAllEmployeesAsync();
+            var employees = await EmployeeService.GetAllEmployeesAsync(page, pageSize);
 
             var mappedEmployees = Mapper.Map<IEnumerable<EmployeeDto>>(employees);
 
