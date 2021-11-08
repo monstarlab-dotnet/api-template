@@ -1,0 +1,33 @@
+name: Pull request
+
+on:
+  pull_request:
+    branches: 
+      - main
+  push:
+    branches:
+      - feature/ci
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Setup .NET Core
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: '6.0.x'
+
+    - name: Clean
+      run: dotnet clean Monstarlab.Templates.API.sln --configuration Release && dotnet nuget locals all --clear
+
+    - name: Install dependencies
+      run: dotnet restore Monstarlab.Templates.API.sln
+
+    - name: Build
+      run: dotnet build Monstarlab.Templates.API.sln --configuration Release --no-restore
+
+    - name: Test
+      run: dotnet test Monstarlab.Templates.API.sln --configuration Release --no-restore
