@@ -3,6 +3,7 @@ using Microsoft.Extensions.Options;
 using Monstarlab.Templates.API.BusinessLogic.Interfaces;
 using Monstarlab.Templates.API.BusinessLogic.Services;
 using Monstarlab.Templates.API.Domain.Interfaces;
+using Monstarlab.Templates.API.Domain.Models;
 using Monstarlab.Templates.API.Infrastructure.Data.Context;
 using Monstarlab.Templates.API.Infrastructure.Data.Repositories;
 
@@ -31,14 +32,14 @@ namespace Monstarlab.Templates.API.Web
 
         private static void SetupRepositories(this IServiceCollection services)
         {
-            services.AddTransient<IDepartmentRepository, DepartmentRepository>();
-            services.AddTransient<IEmployeeRepository, EmployeeRepository>();
+            services.AddTransient<IRepository<Department>, DepartmentRepository>();
+            services.AddTransient<IRepository<Employee>, EmployeeRepository>();
         }
 
         private static void SetupServices(this IServiceCollection services)
         {
-            services.AddTransient<IDepartmentService, DepartmentService>();
-            services.AddTransient<IEmployeeService, EmployeeService>();
+            services.AddTransient<IEntityService<Department>, DepartmentService>();
+            services.AddTransient<IEntityService<Employee>, EmployeeService>();
         }
     }
 }

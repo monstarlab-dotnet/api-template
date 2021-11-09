@@ -1,26 +1,17 @@
-﻿using Monstarlab.Templates.API.BusinessLogic.Interfaces;
-using Monstarlab.Templates.API.Domain.Interfaces;
+﻿using Monstarlab.Templates.API.Domain.Interfaces;
 using Monstarlab.Templates.API.Domain.Models;
-using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
 
 namespace Monstarlab.Templates.API.BusinessLogic.Services
 {
-    public class DepartmentService : IDepartmentService
+    public class DepartmentService : BaseService<Department>
     {
-        private readonly IDepartmentRepository Repository;
-
-        public DepartmentService(IDepartmentRepository repository)
+        public DepartmentService(IRepository<Department> repository) : base(repository)
         {
-            Repository = repository ?? throw new ArgumentNullException(nameof(repository));
         }
 
-        public async Task<IEnumerable<Department>> GetAllDepartmentsAsync(int page, int pageSize)
+        protected override Task<(bool Result, string ErrorMessage)> ValidateEntity(Department entity)
         {
-            var departments = await Repository.GetDepartmentsAsync(page, pageSize);
-
-            return departments;
+            throw new NotImplementedException();
         }
     }
 }
