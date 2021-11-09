@@ -20,7 +20,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Monstarlab.Templates.API.BusinessLogic\Monstarlab.Templates.API.BusinessLogic.csproj" />
-    <ProjectReference Include="..\Monstarlab.Templates.API.Infrastructure\Monstarlab.Templates.API.Infrastructure.csproj" />
+    <ProjectReference Include="..\Monstarlab.Templates.API.Infrastructure.Data\Monstarlab.Templates.API.Infrastructure.Data.csproj" />
   </ItemGroup>
 
 </Project>

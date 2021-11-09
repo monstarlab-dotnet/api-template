@@ -5,7 +5,7 @@ VisualStudioVersion = 17.0.31825.309
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Monstarlab.Templates.API.Web", "Monstarlab.Templates.API.Web\Monstarlab.Templates.API.Web.csproj", "{5AF25A68-BA97-4840-ACD4-1939A676E69A}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Monstarlab.Templates.API.Infrastructure", "Monstarlab.Templates.API.Infrastructure\Monstarlab.Templates.API.Infrastructure.csproj", "{16955470-1D8F-471A-B625-C86D5BF5A0E0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Monstarlab.Templates.API.Infrastructure.Data", "Monstarlab.Templates.API.Infrastructure.Data\Monstarlab.Templates.API.Infrastructure.Data.csproj", "{16955470-1D8F-471A-B625-C86D5BF5A0E0}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Monstarlab.Templates.API.Integrations", "Monstarlab.Templates.API.Integrations\Monstarlab.Templates.API.Integrations.csproj", "{A56E90D5-49A8-446A-B368-419B541FA4A5}"
 EndProject
