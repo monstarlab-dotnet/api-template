@@ -43,5 +43,14 @@ namespace Monstarlab.Templates.API.Web.Controllers
 
             return new OkObjectResult(returnEntity);
         }
+
+        [HttpDelete("{id}")]
+        [ProducesResponseType((int)HttpStatusCode.NoContent)]
+        public async Task<IActionResult> Delete(Guid id)
+        {
+            await EntityService.DeleteAsync(id);
+
+            return new NoContentResult();
+        }
     }
 }

@@ -19,5 +19,12 @@ namespace Monstarlab.Templates.API.BusinessLogic.Interfaces
         /// <exception cref="ArgumentNullException"></exception>
         /// <exception cref="ArgumentException"></exception>
         Task<TEntity> InsertAsync(TEntity entity);
+
+        /// <summary>
+        /// Delete the entity with the given <paramref name="id"/>
+        /// </summary>
+        /// <param name="id">The ID of the entity to delete</param>
+        /// <exception cref="ArgumentException"></exception>
+        Task DeleteAsync(Guid id);
     }
 }

@@ -28,6 +28,8 @@ namespace Monstarlab.Templates.API.BusinessLogic.Services
             return await Repository.InsertAsync(entity);
         }
 
+        public Task DeleteAsync(Guid id) => Repository.DeleteAsync(id);
+
         protected abstract Task<(bool Result, Exception Error)> ValidateEntity(TEntity entity);
     }
 }
