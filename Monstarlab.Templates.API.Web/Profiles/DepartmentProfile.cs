@@ -9,6 +9,8 @@ namespace Monstarlab.Templates.API.Web.Profiles
         public DepartmentProfile()
         {
             CreateMap<Department, DepartmentDto>();
+
+            CreateMap<DepartmentInsertDto, Department>();
         }
     }
 }

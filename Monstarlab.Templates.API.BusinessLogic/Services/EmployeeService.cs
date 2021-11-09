@@ -1,26 +1,26 @@
-﻿using Monstarlab.Templates.API.BusinessLogic.Interfaces;
-using Monstarlab.Templates.API.Domain.Interfaces;
+﻿using Monstarlab.Templates.API.Domain.Interfaces;
 using Monstarlab.Templates.API.Domain.Models;
-using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
 
 namespace Monstarlab.Templates.API.BusinessLogic.Services
 {
-    public class EmployeeService : IEmployeeService
+    public class EmployeeService : BaseService<Employee>
     {
-        protected readonly IEmployeeRepository EmployeeRepository;
-
-        public EmployeeService(IEmployeeRepository employeeRepository)
+        public EmployeeService(IRepository<Employee> repository) : base(repository)
         {
-            EmployeeRepository = employeeRepository ?? throw new ArgumentNullException(nameof(employeeRepository));
         }
 
-        public async Task<IEnumerable<Employee>> GetAllEmployeesAsync(int page, int pageSize)
+        protected override Task<(bool Result, Exception Error)> ValidateEntity(Employee entity)
         {
-            var employees = await EmployeeRepository.GetEmployeesAsync(page, pageSize);
+            if (string.IsNullOrWhiteSpace(entity.FirstName))
+                return Task.FromResult((false, new ArgumentNullException(nameof(entity.FirstName)) as Exception));
 
-            return employees;
+            if (string.IsNullOrWhiteSpace(entity.LastName))
+                return Task.FromResult((false, new ArgumentNullException(nameof(entity.LastName)) as Exception));
+
+            if (entity.DepartmentId.Equals(Guid.Empty))
+                return Task.FromResult((false, new ArgumentException("Department ID was not set", nameof(entity.DepartmentId)) as Exception));
+
+            return Task.FromResult((true, null as Exception));
         }
     }
 }

@@ -1,15 +1,20 @@
-﻿using Monstarlab.Templates.API.Domain.Interfaces;
+﻿using Microsoft.EntityFrameworkCore;
 using Monstarlab.Templates.API.Domain.Models;
 using Monstarlab.Templates.API.Infrastructure.Data.Context;
 
 namespace Monstarlab.Templates.API.Infrastructure.Data.Repositories
 {
-    public class EmployeeRepository : BaseRepository, IEmployeeRepository
+    public class EmployeeRepository : BaseRepository<Employee>
     {
         public EmployeeRepository(MonstarlabDbContext context) : base(context)
         {
         }
 
-        public Task<IEnumerable<Employee>> GetEmployeesAsync(int page, int pageSize) => GetAll<Employee>(Context.Employees, page, pageSize);
+        protected override IQueryable<Employee> WithIncludes()
+        {
+            var query = base.WithIncludes();
+
+            return query.Include(e => e.Department);
+        }
     }
 }

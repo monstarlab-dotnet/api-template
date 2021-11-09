@@ -9,6 +9,8 @@ namespace Monstarlab.Templates.API.Web.Profiles
         public EmployeeProfile()
         {
             CreateMap<Employee, EmployeeDto>();
+
+            CreateMap<EmployeeInsertDto, Employee>();
         }
     }
 }
