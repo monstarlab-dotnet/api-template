@@ -22,11 +22,11 @@ namespace Monstarlab.Templates.API.BusinessLogic.Services
             var validation = await ValidateEntity(entity);
 
             if (!validation.Result)
-                throw new ArgumentException(validation.ErrorMessage, nameof(entity));
+                throw validation.Error;
 
             return await Repository.InsertAsync(entity);
         }
 
-        protected abstract Task<(bool Result, string ErrorMessage)> ValidateEntity(TEntity entity);
+        protected abstract Task<(bool Result, Exception Error)> ValidateEntity(TEntity entity);
     }
 }

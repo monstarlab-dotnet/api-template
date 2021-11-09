@@ -9,7 +9,7 @@ namespace Monstarlab.Templates.API.BusinessLogic.Services
         {
         }
 
-        protected override Task<(bool Result, string ErrorMessage)> ValidateEntity(Employee entity)
+        protected override Task<(bool Result, Exception Error)> ValidateEntity(Employee entity)
         {
             throw new NotImplementedException();
         }
