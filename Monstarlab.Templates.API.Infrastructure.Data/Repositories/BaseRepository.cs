@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Monstarlab.Templates.API.Infrastructure.Context;
+using Monstarlab.Templates.API.Infrastructure.Data.Context;
 
-namespace Monstarlab.Templates.API.Infrastructure.Repositories
+namespace Monstarlab.Templates.API.Infrastructure.Data.Repositories
 {
     public abstract class BaseRepository
     {

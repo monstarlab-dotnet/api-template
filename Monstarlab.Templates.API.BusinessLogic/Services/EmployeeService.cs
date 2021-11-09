@@ -1,6 +1,9 @@
 ﻿using Monstarlab.Templates.API.BusinessLogic.Interfaces;
 using Monstarlab.Templates.API.Domain.Interfaces;
 using Monstarlab.Templates.API.Domain.Models;
+using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace Monstarlab.Templates.API.BusinessLogic.Services
 {

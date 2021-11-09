@@ -2,7 +2,7 @@
 using Monstarlab.Templates.API.Domain.Models;
 using System.Diagnostics.CodeAnalysis;
 
-namespace Monstarlab.Templates.API.Infrastructure.Context
+namespace Monstarlab.Templates.API.Infrastructure.Data.Context
 {
     public class MonstarlabDbContext : DbContext
     {

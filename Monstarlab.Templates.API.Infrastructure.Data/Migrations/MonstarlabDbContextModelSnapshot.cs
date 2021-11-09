@@ -4,11 +4,11 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using Monstarlab.Templates.API.Infrastructure.Context;
+using Monstarlab.Templates.API.Infrastructure.Data.Context;
 
 #nullable disable
 
-namespace Monstarlab.Templates.API.Infrastructure.Migrations
+namespace Monstarlab.Templates.API.Infrastructure.Data.Migrations
 {
     [DbContext(typeof(MonstarlabDbContext))]
     partial class MonstarlabDbContextModelSnapshot : ModelSnapshot

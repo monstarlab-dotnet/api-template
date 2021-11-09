@@ -1,4 +1,6 @@
 ﻿using Monstarlab.Templates.API.Domain.Models;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace Monstarlab.Templates.API.Domain.Interfaces
 {

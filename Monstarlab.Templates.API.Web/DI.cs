@@ -3,8 +3,8 @@ using Microsoft.Extensions.Options;
 using Monstarlab.Templates.API.BusinessLogic.Interfaces;
 using Monstarlab.Templates.API.BusinessLogic.Services;
 using Monstarlab.Templates.API.Domain.Interfaces;
-using Monstarlab.Templates.API.Infrastructure.Context;
-using Monstarlab.Templates.API.Infrastructure.Repositories;
+using Monstarlab.Templates.API.Infrastructure.Data.Context;
+using Monstarlab.Templates.API.Infrastructure.Data.Repositories;
 
 namespace Monstarlab.Templates.API.Web
 {
