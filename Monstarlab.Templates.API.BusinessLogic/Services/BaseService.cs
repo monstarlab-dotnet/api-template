@@ -13,6 +13,8 @@ namespace Monstarlab.Templates.API.BusinessLogic.Services
             Repository = repository ?? throw new ArgumentNullException(nameof(repository));
         }
 
+        public Task<TEntity> GetAsync(Guid id) => Repository.GetAsync(id);
+
         public Task<IEnumerable<TEntity>> GetAllAsync(int page, int pageSize) => Repository.GetAllAsync(page, pageSize);
 
         public async Task<TEntity> InsertAsync(TEntity entity)

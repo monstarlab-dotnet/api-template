@@ -9,7 +9,7 @@ namespace Monstarlab.Templates.API.Domain.Interfaces
         /// </summary>
         /// <param name="id">The ID of the entity to fetch</param>
         /// <exception cref="ArgumentException"></exception>
-        Task<TEntity> Get(Guid id);
+        Task<TEntity> GetAsync(Guid id);
 
         /// <summary>
         /// Get all entities in the database

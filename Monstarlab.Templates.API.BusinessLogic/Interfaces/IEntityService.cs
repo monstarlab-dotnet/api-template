@@ -5,6 +5,13 @@ namespace Monstarlab.Templates.API.BusinessLogic.Interfaces
     public interface IEntityService<TEntity> where TEntity : DomainEntity
     {
         /// <summary>
+        /// Get entity with given <paramref name="id"/>
+        /// </summary>
+        /// <param name="id">The ID of the entity to fetch</param>
+        /// <exception cref="ArgumentException"></exception>
+        Task<TEntity> GetAsync(Guid id);
+
+        /// <summary>
         /// Get all entities
         /// </summary>
         /// <param name="page">Which page to fetch</param>

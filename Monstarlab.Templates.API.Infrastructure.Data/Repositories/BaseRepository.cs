@@ -14,7 +14,7 @@ namespace Monstarlab.Templates.API.Infrastructure.Data.Repositories
             Context = context ?? throw new ArgumentNullException(nameof(context));
         }
 
-        public async Task<TEntity> Get(Guid id)
+        public async Task<TEntity> GetAsync(Guid id)
         {
             if (id.Equals(Guid.Empty))
                 throw new ArgumentException("ID was not set", nameof(id));
@@ -57,7 +57,7 @@ namespace Monstarlab.Templates.API.Infrastructure.Data.Repositories
 
         public async Task DeleteAsync(Guid id)
         {
-            var entity = await Get(id);
+            var entity = await GetAsync(id);
 
             if (entity == null)
                 return;
