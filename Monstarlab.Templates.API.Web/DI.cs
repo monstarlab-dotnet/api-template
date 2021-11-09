@@ -20,7 +20,7 @@ namespace Monstarlab.Templates.API.Web
 
             builder.Services.AddDbContext<MonstarlabDbContext>((s, options) =>
             {
-                var settings = s.GetService<IOptions<MonstarlabAppSettings>>().Value;
+                var settings = s.GetService<IOptions<MonstarlabAppSettings>>()?.Value ?? throw new ArgumentNullException();
 
                 options.UseSqlServer(settings.DatabaseConnectionString);
             });

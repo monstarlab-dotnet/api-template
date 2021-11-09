@@ -22,7 +22,7 @@ namespace Monstarlab.Templates.API.Infrastructure.Data.Repositories
                 throw new ArgumentOutOfRangeException(nameof(pageSize), pageSize, "Value should be 1 or higher");
 
 
-            IQueryable<TEntity> query = Context.Set<TEntity>();
+            IQueryable<TEntity> query = WithIncludes();
 
             if (page > 1)
                 query = query.Skip((page - 1) * pageSize);
@@ -42,6 +42,11 @@ namespace Monstarlab.Templates.API.Infrastructure.Data.Repositories
             await Context.SaveChangesAsync();
 
             return AddedEntity.Entity;
+        }
+
+        protected virtual IQueryable<TEntity> WithIncludes()
+        {
+            return Context.Set<TEntity>();
         }
     }
 }
