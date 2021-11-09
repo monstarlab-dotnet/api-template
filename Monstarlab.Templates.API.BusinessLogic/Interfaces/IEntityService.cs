@@ -1,6 +1,8 @@
-﻿namespace Monstarlab.Templates.API.BusinessLogic.Interfaces
+﻿using Monstarlab.Templates.API.Domain.Models;
+
+namespace Monstarlab.Templates.API.BusinessLogic.Interfaces
 {
-    public interface IEntityService<TEntity> where TEntity : class
+    public interface IEntityService<TEntity> where TEntity : DomainEntity
     {
         /// <summary>
         /// Get all entities

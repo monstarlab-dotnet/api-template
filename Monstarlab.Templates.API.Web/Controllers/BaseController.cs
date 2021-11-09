@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using Monstarlab.Templates.API.BusinessLogic.Interfaces;
+using Monstarlab.Templates.API.Domain.Models;
 using System.Net;
 
 namespace Monstarlab.Templates.API.Web.Controllers
@@ -8,7 +9,7 @@ namespace Monstarlab.Templates.API.Web.Controllers
     [Route("api/v{version:apiVersion}/[controller]")]
     [ApiController]
     [ApiVersion("1.0")]
-    public abstract class BaseController<TEntity, TDto, TInsertDto> : ControllerBase where TEntity : class where TDto : class where TInsertDto : class
+    public abstract class BaseController<TEntity, TDto, TInsertDto> : ControllerBase where TEntity : DomainEntity where TDto : class where TInsertDto : class
     {
         protected readonly IEntityService<TEntity> EntityService;
         protected readonly IMapper Mapper;
@@ -38,7 +39,9 @@ namespace Monstarlab.Templates.API.Web.Controllers
 
             var insertedEntity = await EntityService.InsertAsync(mappedEntity);
 
-            return new OkObjectResult(insertedEntity);
+            var returnEntity = Mapper.Map<TDto>(insertedEntity);
+
+            return new OkObjectResult(returnEntity);
         }
     }
 }

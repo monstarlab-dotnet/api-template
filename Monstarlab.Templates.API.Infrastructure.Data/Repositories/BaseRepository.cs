@@ -1,10 +1,11 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Monstarlab.Templates.API.Domain.Interfaces;
+using Monstarlab.Templates.API.Domain.Models;
 using Monstarlab.Templates.API.Infrastructure.Data.Context;
 
 namespace Monstarlab.Templates.API.Infrastructure.Data.Repositories
 {
-    public abstract class BaseRepository<TEntity> : IRepository<TEntity> where TEntity : class
+    public abstract class BaseRepository<TEntity> : IRepository<TEntity> where TEntity : DomainEntity
     {
         protected readonly MonstarlabDbContext Context;
 
@@ -41,7 +42,7 @@ namespace Monstarlab.Templates.API.Infrastructure.Data.Repositories
 
             await Context.SaveChangesAsync();
 
-            return AddedEntity.Entity;
+            return await WithIncludes().FirstAsync(e => e.Id.Equals(AddedEntity.Entity.Id));
         }
 
         protected virtual IQueryable<TEntity> WithIncludes()

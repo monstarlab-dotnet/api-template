@@ -1,6 +1,8 @@
-﻿namespace Monstarlab.Templates.API.Domain.Interfaces
+﻿using Monstarlab.Templates.API.Domain.Models;
+
+namespace Monstarlab.Templates.API.Domain.Interfaces
 {
-    public interface IRepository<TEntity> where TEntity : class
+    public interface IRepository<TEntity> where TEntity : DomainEntity
     {
         /// <summary>
         /// Get all entities in the database

@@ -2,11 +2,8 @@
 
 namespace Monstarlab.Templates.API.Domain.Models
 {
-    public class Department
+    public class Department : DomainEntity
     {
-        [Key]
-        public Guid Id { get; set; }
-
         [Required]
         public string Country { get; set; }
 

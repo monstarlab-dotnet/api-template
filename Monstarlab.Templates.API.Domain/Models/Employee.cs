@@ -2,11 +2,8 @@
 
 namespace Monstarlab.Templates.API.Domain.Models
 {
-    public class Employee
+    public class Employee : DomainEntity
     {
-        [Key]
-        public Guid Id { get; set; }
-
         [Required]
         public string FirstName { get; set; }
 
