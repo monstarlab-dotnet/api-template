@@ -2,7 +2,7 @@
 
 #nullable disable
 
-namespace Monstarlab.Templates.API.Infrastructure.Migrations
+namespace Monstarlab.Templates.API.Infrastructure.Data.Migrations
 {
     public partial class Initial : Migration
     {
