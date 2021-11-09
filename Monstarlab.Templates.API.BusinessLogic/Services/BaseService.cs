@@ -13,6 +13,8 @@ namespace Monstarlab.Templates.API.BusinessLogic.Services
             Repository = repository ?? throw new ArgumentNullException(nameof(repository));
         }
 
+        public Task<TEntity> GetAsync(Guid id) => Repository.GetAsync(id);
+
         public Task<IEnumerable<TEntity>> GetAllAsync(int page, int pageSize) => Repository.GetAllAsync(page, pageSize);
 
         public async Task<TEntity> InsertAsync(TEntity entity)
@@ -27,6 +29,8 @@ namespace Monstarlab.Templates.API.BusinessLogic.Services
 
             return await Repository.InsertAsync(entity);
         }
+
+        public Task DeleteAsync(Guid id) => Repository.DeleteAsync(id);
 
         protected abstract Task<(bool Result, Exception Error)> ValidateEntity(TEntity entity);
     }

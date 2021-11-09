@@ -20,6 +20,21 @@ namespace Monstarlab.Templates.API.Web.Controllers
             Mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
         }
 
+        [HttpGet("{id}")]
+        [ProducesResponseType((int)HttpStatusCode.OK)]
+        [ProducesResponseType((int)HttpStatusCode.NotFound)]
+        public async Task<ActionResult<TDto>> Get(Guid id)
+        {
+            var entity = await EntityService.GetAsync(id);
+
+            if (entity == null)
+                return NotFound();
+
+            var mappedEntity = Mapper.Map<TDto>(entity);
+
+            return new OkObjectResult(mappedEntity);
+        }
+
         [HttpGet]
         public async Task<ActionResult<IEnumerable<TDto>>> GetAll(int page = 1, int pageSize = 20)
         {
@@ -42,6 +57,15 @@ namespace Monstarlab.Templates.API.Web.Controllers
             var returnEntity = Mapper.Map<TDto>(insertedEntity);
 
             return new OkObjectResult(returnEntity);
+        }
+
+        [HttpDelete("{id}")]
+        [ProducesResponseType((int)HttpStatusCode.NoContent)]
+        public async Task<IActionResult> Delete(Guid id)
+        {
+            await EntityService.DeleteAsync(id);
+
+            return new NoContentResult();
         }
     }
 }

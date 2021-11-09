@@ -14,6 +14,16 @@ namespace Monstarlab.Templates.API.Infrastructure.Data.Repositories
             Context = context ?? throw new ArgumentNullException(nameof(context));
         }
 
+        public async Task<TEntity> GetAsync(Guid id)
+        {
+            if (id.Equals(Guid.Empty))
+                throw new ArgumentException("ID was not set", nameof(id));
+
+            var entity = await WithIncludes().FirstOrDefaultAsync(e => e.Id.Equals(id));
+
+            return entity;
+        }
+
         public async Task<IEnumerable<TEntity>> GetAllAsync(int page, int pageSize)
         {
             if (page < 1)
@@ -43,6 +53,18 @@ namespace Monstarlab.Templates.API.Infrastructure.Data.Repositories
             await Context.SaveChangesAsync();
 
             return await WithIncludes().FirstAsync(e => e.Id.Equals(AddedEntity.Entity.Id));
+        }
+
+        public async Task DeleteAsync(Guid id)
+        {
+            var entity = await GetAsync(id);
+
+            if (entity == null)
+                return;
+
+            Context.Set<TEntity>().Remove(entity);
+
+            await Context.SaveChangesAsync();
         }
 
         protected virtual IQueryable<TEntity> WithIncludes()
