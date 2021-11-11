@@ -1,16 +1,13 @@
-﻿using AutoMapper;
-using Monstarlab.Templates.API.Domain.Models;
-using Monstarlab.Templates.API.Web.DTOs.Employee;
+﻿using Monstarlab.Templates.API.Web.DTOs.Employee;
 
-namespace Monstarlab.Templates.API.Web.Profiles
+namespace Monstarlab.Templates.API.Web.Profiles;
+
+public class EmployeeProfile : Profile
 {
-    public class EmployeeProfile : Profile
+    public EmployeeProfile()
     {
-        public EmployeeProfile()
-        {
-            CreateMap<Employee, EmployeeDto>();
+        CreateMap<Employee, EmployeeDto>();
 
-            CreateMap<EmployeeInsertDto, Employee>();
-        }
+        CreateMap<EmployeeInsertDto, Employee>();
     }
 }

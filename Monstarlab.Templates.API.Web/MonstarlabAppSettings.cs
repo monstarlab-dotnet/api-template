@@ -1,7 +1,6 @@
-﻿namespace Monstarlab.Templates.API.Web
+﻿namespace Monstarlab.Templates.API.Web;
+
+public class MonstarlabAppSettings
 {
-    public class MonstarlabAppSettings
-    {
-        public string DatabaseConnectionString { get; set; }
-    }
+    public string DatabaseConnectionString { get; set; }
 }

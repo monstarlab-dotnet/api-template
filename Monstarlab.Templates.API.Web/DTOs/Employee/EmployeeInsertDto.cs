@@ -1,13 +1,12 @@
-﻿namespace Monstarlab.Templates.API.Web.DTOs.Employee
+﻿namespace Monstarlab.Templates.API.Web.DTOs.Employee;
+
+public class EmployeeInsertDto
 {
-    public class EmployeeInsertDto
-    {
-        public string FirstName { get; set; }
+    public string FirstName { get; set; }
 
-        public string LastName { get; set; }
+    public string LastName { get; set; }
 
-        public uint Age { get; set; }
+    public uint Age { get; set; }
 
-        public Guid DepartmentId { get; set; }
-    }
+    public Guid DepartmentId { get; set; }
 }

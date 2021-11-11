@@ -1,4 +1,3 @@
-using Microsoft.AspNetCore.Mvc;
 using Monstarlab.Templates.API.Web;
 
 var builder = WebApplication.CreateBuilder(args);
