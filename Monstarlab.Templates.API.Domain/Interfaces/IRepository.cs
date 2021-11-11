@@ -33,5 +33,12 @@ namespace Monstarlab.Templates.API.Domain.Interfaces
         /// <param name="id">The ID of the entity to delete</param>
         /// <exception cref="ArgumentException"></exception>
         Task DeleteAsync(Guid id);
+
+        /// <summary>
+        /// Update the entity
+        /// </summary>
+        /// <param name="entity">Entity to update</param>
+        /// <exception cref="ArgumentNullException"></exception>
+        Task<TEntity> UpdateAsync(TEntity entity);
     }
 }

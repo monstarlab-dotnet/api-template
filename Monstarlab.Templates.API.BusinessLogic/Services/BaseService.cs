@@ -22,12 +22,25 @@ namespace Monstarlab.Templates.API.BusinessLogic.Services
             if (entity == null)
                 throw new ArgumentNullException(nameof(entity));
 
-            var validation = await ValidateEntity(entity);
+            var (result, error) = await ValidateEntity(entity);
 
-            if (!validation.Result)
-                throw validation.Error;
+            if (!result)
+                throw error;
 
             return await Repository.InsertAsync(entity);
+        }
+
+        public async Task<TEntity> UpdateAsync(TEntity entity)
+        {
+            if (entity == null)
+                throw new ArgumentNullException(nameof(entity));
+
+            var (result, error) = await ValidateEntity(entity);
+
+            if (!result)
+                throw error;
+
+            return await Repository.UpdateAsync(entity);
         }
 
         public Task DeleteAsync(Guid id) => Repository.DeleteAsync(id);

@@ -67,6 +67,18 @@ namespace Monstarlab.Templates.API.Infrastructure.Data.Repositories
             await Context.SaveChangesAsync();
         }
 
+        public async Task<TEntity> UpdateAsync(TEntity entity)
+        {
+            if (entity == null)
+                throw new ArgumentNullException(nameof(entity));
+
+            var updatedEntity = Context.Set<TEntity>().Update(entity);
+
+            await Context.SaveChangesAsync();
+
+            return await GetAsync(updatedEntity.Entity.Id);
+        }
+
         protected virtual IQueryable<TEntity> WithIncludes()
         {
             return Context.Set<TEntity>();

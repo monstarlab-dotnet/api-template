@@ -9,7 +9,7 @@ namespace Monstarlab.Templates.API.Web.Controllers
     [Route("api/v{version:apiVersion}/[controller]")]
     [ApiController]
     [ApiVersion("1.0")]
-    public abstract class BaseController<TEntity, TDto, TInsertDto> : ControllerBase where TEntity : DomainEntity where TDto : class where TInsertDto : class
+    public abstract class BaseController<TEntity, TDto, TInsertDto, TUpdateDto> : ControllerBase where TEntity : DomainEntity where TDto : class where TInsertDto : class where TUpdateDto : class
     {
         protected readonly IEntityService<TEntity> EntityService;
         protected readonly IMapper Mapper;
@@ -23,7 +23,7 @@ namespace Monstarlab.Templates.API.Web.Controllers
         [HttpGet("{id}")]
         [ProducesResponseType((int)HttpStatusCode.OK)]
         [ProducesResponseType((int)HttpStatusCode.NotFound)]
-        public async Task<ActionResult<TDto>> Get(Guid id)
+        public virtual async Task<ActionResult<TDto>> Get(Guid id)
         {
             var entity = await EntityService.GetAsync(id);
 
@@ -36,7 +36,7 @@ namespace Monstarlab.Templates.API.Web.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<TDto>>> GetAll(int page = 1, int pageSize = 20)
+        public virtual async Task<ActionResult<IEnumerable<TDto>>> GetAll(int page = 1, int pageSize = 20)
         {
             var entities = await EntityService.GetAllAsync(page, pageSize);
 
@@ -45,10 +45,10 @@ namespace Monstarlab.Templates.API.Web.Controllers
             return new OkObjectResult(mappedEntities);
         }
 
-        [HttpPut]
+        [HttpPost]
         [ProducesResponseType((int)HttpStatusCode.OK)]
         [ProducesResponseType((int)HttpStatusCode.BadRequest)]
-        public async Task<ActionResult<TDto>> Insert(TInsertDto dto)
+        public virtual async Task<ActionResult<TDto>> Insert(TInsertDto dto)
         {
             var mappedEntity = Mapper.Map<TEntity>(dto);
 
@@ -59,9 +59,31 @@ namespace Monstarlab.Templates.API.Web.Controllers
             return new OkObjectResult(returnEntity);
         }
 
+        [HttpPatch("{id}")]
+        [ProducesResponseType((int)HttpStatusCode.OK)]
+        [ProducesResponseType((int)HttpStatusCode.BadRequest)]
+        public virtual async Task<ActionResult<TDto>> Update(Guid id, TUpdateDto dto)
+        {
+            if (id == Guid.Empty)
+                return new BadRequestObjectResult($"{nameof(id)} was not set");
+
+            if (dto == null)
+                return new BadRequestObjectResult("No body was set");
+
+            var mappedEntity = Mapper.Map<TEntity>(dto);
+
+            mappedEntity.Id = id;
+
+            var updatedEntity = await EntityService.UpdateAsync(mappedEntity);
+
+            var returnDto = Mapper.Map<TDto>(updatedEntity);
+
+            return new OkObjectResult(returnDto);
+        }
+
         [HttpDelete("{id}")]
         [ProducesResponseType((int)HttpStatusCode.NoContent)]
-        public async Task<IActionResult> Delete(Guid id)
+        public virtual async Task<IActionResult> Delete(Guid id)
         {
             await EntityService.DeleteAsync(id);
 
