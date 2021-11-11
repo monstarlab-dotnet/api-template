@@ -1,10 +1,4 @@
-﻿using AutoMapper;
-using Microsoft.AspNetCore.Mvc;
-using Monstarlab.Templates.API.BusinessLogic.Interfaces;
-using Monstarlab.Templates.API.Domain.Models;
-using System.Net;
-
-namespace Monstarlab.Templates.API.Web.Controllers;
+﻿namespace Monstarlab.Templates.API.Web.Controllers;
 
 [Route("api/v{version:apiVersion}/[controller]")]
 [ApiController]

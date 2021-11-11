@@ -1,7 +1,4 @@
-﻿using AutoMapper;
-using Monstarlab.Templates.API.BusinessLogic.Interfaces;
-using Monstarlab.Templates.API.Domain.Models;
-using Monstarlab.Templates.API.Web.DTOs.Employee;
+﻿using Monstarlab.Templates.API.Web.DTOs.Employee;
 
 namespace Monstarlab.Templates.API.Web.Controllers;
 
