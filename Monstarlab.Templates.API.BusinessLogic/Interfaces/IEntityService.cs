@@ -1,6 +1,4 @@
-﻿using Monstarlab.Templates.API.Domain.Models;
-
-namespace Monstarlab.Templates.API.BusinessLogic.Interfaces;
+﻿namespace Monstarlab.Templates.API.BusinessLogic.Interfaces;
 
 public interface IEntityService<TEntity> where TEntity : DomainEntity
 {

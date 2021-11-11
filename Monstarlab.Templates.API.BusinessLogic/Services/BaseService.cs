@@ -1,8 +1,4 @@
-﻿using Monstarlab.Templates.API.BusinessLogic.Interfaces;
-using Monstarlab.Templates.API.Domain.Interfaces;
-using Monstarlab.Templates.API.Domain.Models;
-
-namespace Monstarlab.Templates.API.BusinessLogic.Services;
+﻿namespace Monstarlab.Templates.API.BusinessLogic.Services;
 
 public abstract class BaseService<TEntity> : IEntityService<TEntity> where TEntity : DomainEntity
 {

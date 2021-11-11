@@ -1,6 +1,4 @@
-﻿using Monstarlab.Templates.API.Domain.Models;
-
-namespace Monstarlab.Templates.API.Domain.Interfaces;
+﻿namespace Monstarlab.Templates.API.Domain.Interfaces;
 
 public interface IRepository<TEntity> where TEntity : DomainEntity
 {

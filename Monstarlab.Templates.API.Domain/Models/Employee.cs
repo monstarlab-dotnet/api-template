@@ -1,6 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
-
-namespace Monstarlab.Templates.API.Domain.Models;
+﻿namespace Monstarlab.Templates.API.Domain.Models;
 
 public class Employee : DomainEntity
 {

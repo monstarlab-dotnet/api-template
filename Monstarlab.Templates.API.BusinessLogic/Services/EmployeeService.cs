@@ -1,7 +1,4 @@
-﻿using Monstarlab.Templates.API.Domain.Interfaces;
-using Monstarlab.Templates.API.Domain.Models;
-
-namespace Monstarlab.Templates.API.BusinessLogic.Services;
+﻿namespace Monstarlab.Templates.API.BusinessLogic.Services;
 
 public class EmployeeService : BaseService<Employee>
 {
