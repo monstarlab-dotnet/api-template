@@ -37,9 +37,9 @@ public abstract class BaseController<TEntity, TId, TDto, TInsertDto, TUpdateDto>
     {
         var entities = await EntityService.GetAllAsync(page, pageSize);
 
-        var mappedEntities = new ListWrapper<Department>
+        var mappedEntities = new ListWrapper<TDto>
         {
-            Data = Mapper.Map<IEnumerable<Department>>(entities.Data),
+            Data = Mapper.Map<IEnumerable<TDto>>(entities.Data),
             Meta = entities.Meta
         };
 
