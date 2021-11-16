@@ -34,11 +34,15 @@ public abstract class BaseController<TEntity, TId, TDto, TInsertDto, TUpdateDto>
     }
 
     [HttpGet]
-    public virtual async Task<ActionResult<IEnumerable<TDto>>> GetAll(int page = 1, int pageSize = 20)
+    public virtual async Task<ActionResult<ListWrapper<TDto>>> GetAll(int page = 1, int pageSize = 20)
     {
         var entities = await EntityService.GetAllAsync(page, pageSize);
 
-        var mappedEntities = Mapper.Map<IEnumerable<TDto>>(entities);
+        var mappedEntities = new ListWrapper<TDto>
+        {
+            Data = Mapper.Map<IEnumerable<TDto>>(entities.Data),
+            Meta = entities.Meta
+        };
 
         return new OkObjectResult(mappedEntities);
     }
