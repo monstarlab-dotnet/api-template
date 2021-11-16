@@ -10,4 +10,5 @@ global using Monstarlab.Templates.API.Infrastructure.Data.Context;
 global using Monstarlab.Templates.API.Infrastructure.Data.Repositories;
 global using Monstarlab.Templates.API.Web.DTOs.Department;
 global using Microsoft.AspNetCore.Mvc;
+global using System.Linq.Expressions;
 global using System.Net;

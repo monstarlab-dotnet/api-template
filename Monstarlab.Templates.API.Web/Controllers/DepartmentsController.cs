@@ -1,10 +1,11 @@
-﻿using Monstarlab.Templates.API.Web.DTOs.Department;
-
-namespace Monstarlab.Templates.API.Web.Controllers;
+﻿namespace Monstarlab.Templates.API.Web.Controllers;
 
 public class DepartmentsController : BaseController<Department, Guid, DepartmentDto, DepartmentInsertDto, DepartmentUpdateDto>
 {
     public DepartmentsController(IEntityService<Department, Guid> entityService, IMapper mapper) : base(entityService, mapper)
     {
     }
+
+    [HttpGet]
+    public Task<ActionResult<ListWrapper<DepartmentDto>>> GetList(int page = 1, int pageSize = 20) => GetAll(page, pageSize);
 }

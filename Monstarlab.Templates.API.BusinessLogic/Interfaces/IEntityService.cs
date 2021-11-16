@@ -1,6 +1,4 @@
-﻿using Monstarlab.EntityFramework.Extension.Models;
-
-namespace Monstarlab.Templates.API.BusinessLogic.Interfaces;
+﻿namespace Monstarlab.Templates.API.BusinessLogic.Interfaces;
 
 public interface IEntityService<TEntity, TId> where TEntity : EntityBase<TId>
 {
@@ -17,7 +15,7 @@ public interface IEntityService<TEntity, TId> where TEntity : EntityBase<TId>
     /// <param name="page">Which page to fetch</param>
     /// <param name="pageSize">The size of each page</param>
     /// <exception cref="ArgumentOutOfRangeException"></exception>
-    Task<ListWrapper<TEntity>> GetAllAsync(int page, int pageSize);
+    Task<ListWrapper<TEntity>> GetAllAsync(int page, int pageSize, Expression<Func<TEntity, bool>>[]? filters = null);
 
     /// <summary>
     /// Insert new entity

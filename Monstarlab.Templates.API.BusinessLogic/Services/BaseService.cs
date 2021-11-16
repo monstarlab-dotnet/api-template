@@ -11,7 +11,7 @@ public abstract class BaseService<TEntity, TId> : IEntityService<TEntity, TId> w
 
     public Task<TEntity> GetAsync(TId id) => Repository.GetAsync(id);
 
-    public Task<ListWrapper<TEntity>> GetAllAsync(int page, int pageSize) => Repository.GetListAsync(page, pageSize);
+    public Task<ListWrapper<TEntity>> GetAllAsync(int page, int pageSize, Expression<Func<TEntity, bool>>[]? filters = null) => Repository.GetListAsync(page, pageSize, filters);
 
     public async Task<TEntity> InsertAsync(TEntity entity)
     {
@@ -26,18 +26,7 @@ public abstract class BaseService<TEntity, TId> : IEntityService<TEntity, TId> w
         return await Repository.AddAsync(entity);
     }
 
-    public async Task<TEntity> UpdateAsync(TEntity entity)
-    {
-        if (entity == null)
-            throw new ArgumentNullException(nameof(entity));
-
-        var (result, error) = await ValidateEntity(entity);
-
-        if (!result)
-            throw error;
-
-        return await Repository.UpdateAsync(entity);
-    }
+    public Task<TEntity> UpdateAsync(TEntity entity) => Repository.UpdateAsync(entity);
 
     public Task DeleteAsync(TId id) => Repository.DeleteAsync(id);
 
