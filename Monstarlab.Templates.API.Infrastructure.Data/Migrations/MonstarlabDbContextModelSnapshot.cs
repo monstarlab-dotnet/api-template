@@ -62,7 +62,7 @@ namespace Monstarlab.Templates.API.Infrastructure.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Departments");
+                    b.ToTable("Departments", (string)null);
 
                     b.HasData(
                         new
@@ -120,7 +120,7 @@ namespace Monstarlab.Templates.API.Infrastructure.Data.Migrations
 
                     b.HasIndex("DepartmentId");
 
-                    b.ToTable("Employees");
+                    b.ToTable("Employees", (string)null);
 
                     b.HasData(
                         new

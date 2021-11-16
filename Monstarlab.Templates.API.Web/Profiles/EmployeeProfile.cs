@@ -9,5 +9,7 @@ public class EmployeeProfile : Profile
         CreateMap<Employee, EmployeeDto>();
 
         CreateMap<EmployeeInsertDto, Employee>();
+
+        CreateMap<EmployeeUpdateDto, Employee>();
     }
 }

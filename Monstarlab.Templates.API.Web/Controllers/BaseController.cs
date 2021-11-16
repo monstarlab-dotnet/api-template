@@ -33,8 +33,7 @@ public abstract class BaseController<TEntity, TId, TDto, TInsertDto, TUpdateDto>
         return new OkObjectResult(mappedEntity);
     }
 
-    [HttpGet]
-    public virtual async Task<ActionResult<ListWrapper<TDto>>> GetAll(int page = 1, int pageSize = 20)
+    protected virtual async Task<ActionResult<ListWrapper<TDto>>> GetAll(int page = 1, int pageSize = 20)
     {
         var entities = await EntityService.GetAllAsync(page, pageSize);
 
