@@ -1,8 +1,8 @@
 ﻿namespace Monstarlab.Templates.API.BusinessLogic.Services;
 
-public class EmployeeService : BaseService<Employee>
+public class EmployeeService : BaseService<Employee, Guid>
 {
-    public EmployeeService(IRepository<Employee> repository) : base(repository)
+    public EmployeeService(IEntityRepository<Employee, Guid> repository) : base(repository)
     {
     }
 

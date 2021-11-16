@@ -23,13 +23,13 @@ public static class DI
 
     private static void SetupRepositories(this IServiceCollection services)
     {
-        services.AddTransient<IRepository<Department>, DepartmentRepository>();
-        services.AddTransient<IRepository<Employee>, EmployeeRepository>();
+        services.AddTransient<IEntityRepository<Department, Guid>, EntityRepository<MonstarlabDbContext, Department, Guid>>();
+        services.AddTransient<IEntityRepository<Employee, Guid>, EmployeeRepository>();
     }
 
     private static void SetupServices(this IServiceCollection services)
     {
-        services.AddTransient<IEntityService<Department>, DepartmentService>();
-        services.AddTransient<IEntityService<Employee>, EmployeeService>();
+        services.AddTransient<IEntityService<Department, Guid>, DepartmentService>();
+        services.AddTransient<IEntityService<Employee, Guid>, EmployeeService>();
     }
 }

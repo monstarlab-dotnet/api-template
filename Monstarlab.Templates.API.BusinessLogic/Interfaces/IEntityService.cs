@@ -1,13 +1,15 @@
-﻿namespace Monstarlab.Templates.API.BusinessLogic.Interfaces;
+﻿using Monstarlab.EntityFramework.Extension.Models;
 
-public interface IEntityService<TEntity> where TEntity : DomainEntity
+namespace Monstarlab.Templates.API.BusinessLogic.Interfaces;
+
+public interface IEntityService<TEntity, TId> where TEntity : EntityBase<TId>
 {
     /// <summary>
     /// Get entity with given <paramref name="id"/>
     /// </summary>
     /// <param name="id">The ID of the entity to fetch</param>
     /// <exception cref="ArgumentException"></exception>
-    Task<TEntity> GetAsync(Guid id);
+    Task<TEntity> GetAsync(TId id);
 
     /// <summary>
     /// Get all entities
@@ -15,7 +17,7 @@ public interface IEntityService<TEntity> where TEntity : DomainEntity
     /// <param name="page">Which page to fetch</param>
     /// <param name="pageSize">The size of each page</param>
     /// <exception cref="ArgumentOutOfRangeException"></exception>
-    Task<IEnumerable<TEntity>> GetAllAsync(int page, int pageSize);
+    Task<ListWrapper<TEntity>> GetAllAsync(int page, int pageSize);
 
     /// <summary>
     /// Insert new entity
@@ -30,7 +32,7 @@ public interface IEntityService<TEntity> where TEntity : DomainEntity
     /// </summary>
     /// <param name="id">The ID of the entity to delete</param>
     /// <exception cref="ArgumentException"></exception>
-    Task DeleteAsync(Guid id);
+    Task DeleteAsync(TId id);
 
     /// <summary>
     /// Update the entity

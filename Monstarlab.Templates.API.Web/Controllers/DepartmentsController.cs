@@ -2,9 +2,9 @@
 
 namespace Monstarlab.Templates.API.Web.Controllers;
 
-public class DepartmentsController : BaseController<Department, DepartmentDto, DepartmentInsertDto, DepartmentUpdateDto>
+public class DepartmentsController : BaseController<Department, Guid, DepartmentDto, DepartmentInsertDto, DepartmentUpdateDto>
 {
-    public DepartmentsController(IEntityService<Department> entityService, IMapper mapper) : base(entityService, mapper)
+    public DepartmentsController(IEntityService<Department, Guid> entityService, IMapper mapper) : base(entityService, mapper)
     {
     }
 }

@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Monstarlab.Templates.API.Infrastructure.Data.Context;
 
@@ -11,9 +12,10 @@ using Monstarlab.Templates.API.Infrastructure.Data.Context;
 namespace Monstarlab.Templates.API.Infrastructure.Data.Migrations
 {
     [DbContext(typeof(MonstarlabDbContext))]
-    partial class MonstarlabDbContextModelSnapshot : ModelSnapshot
+    [Migration("20211116094416_MigrateToMonstarlabEFPackage")]
+    partial class MigrateToMonstarlabEFPackage
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
