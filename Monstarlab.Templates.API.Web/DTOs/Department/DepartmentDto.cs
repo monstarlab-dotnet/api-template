@@ -1,9 +1,7 @@
 ﻿namespace Monstarlab.Templates.API.Web.DTOs.Department;
 
-public class DepartmentDto
+public class DepartmentDto : DomainDto
 {
-    public Guid Id { get; set; }
-
     public string Country { get; set; }
 
     public string ZipCode { get; set; }

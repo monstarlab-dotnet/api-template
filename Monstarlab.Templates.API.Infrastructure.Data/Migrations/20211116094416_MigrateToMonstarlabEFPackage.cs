@@ -36,6 +36,10 @@ namespace Monstarlab.Templates.API.Infrastructure.Data.Migrations
                 type: "datetime2",
                 nullable: false,
                 defaultValue: new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified));
+
+            migrationBuilder.Sql($"UPDATE Departments SET Created = '{DateTime.Now.AddMinutes(-1):yyyy-MM-dd HH:mm:ss.fff}', Updated = '{DateTime.Now:yyyy-MM-dd HH:mm:ss.fff}'");
+
+            migrationBuilder.Sql($"UPDATE Employees SET Created = '{DateTime.Now.AddMinutes(-1):yyyy-MM-dd HH:mm:ss.fff}', Updated = '{DateTime.Now:yyyy-MM-dd HH:mm:ss.fff}'");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

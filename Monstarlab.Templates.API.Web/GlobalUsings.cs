@@ -8,5 +8,6 @@ global using Monstarlab.Templates.API.BusinessLogic.Services;
 global using Monstarlab.Templates.API.Domain.Models;
 global using Monstarlab.Templates.API.Infrastructure.Data.Context;
 global using Monstarlab.Templates.API.Infrastructure.Data.Repositories;
+global using Monstarlab.Templates.API.Web.DTOs.Department;
 global using Microsoft.AspNetCore.Mvc;
 global using System.Net;
