@@ -3,12 +3,16 @@
 [Route("api/v{version:apiVersion}/[controller]")]
 [ApiController]
 [ApiVersion("1.0")]
-public abstract class BaseController<TEntity, TDto, TInsertDto, TUpdateDto> : ControllerBase where TEntity : DomainEntity where TDto : class where TInsertDto : class where TUpdateDto : class
+public abstract class BaseController<TEntity, TId, TDto, TInsertDto, TUpdateDto> : ControllerBase
+    where TEntity : EntityBase<TId>
+    where TDto : class
+    where TInsertDto : class
+    where TUpdateDto : class
 {
-    protected readonly IEntityService<TEntity> EntityService;
+    protected readonly IEntityService<TEntity, TId> EntityService;
     protected readonly IMapper Mapper;
 
-    public BaseController(IEntityService<TEntity> entityService, IMapper mapper)
+    public BaseController(IEntityService<TEntity, TId> entityService, IMapper mapper)
     {
         EntityService = entityService ?? throw new ArgumentNullException(nameof(entityService));
         Mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
@@ -17,7 +21,7 @@ public abstract class BaseController<TEntity, TDto, TInsertDto, TUpdateDto> : Co
     [HttpGet("{id}")]
     [ProducesResponseType((int)HttpStatusCode.OK)]
     [ProducesResponseType((int)HttpStatusCode.NotFound)]
-    public virtual async Task<ActionResult<TDto>> Get(Guid id)
+    public virtual async Task<ActionResult<TDto>> Get(TId id)
     {
         var entity = await EntityService.GetAsync(id);
 
@@ -30,11 +34,15 @@ public abstract class BaseController<TEntity, TDto, TInsertDto, TUpdateDto> : Co
     }
 
     [HttpGet]
-    public virtual async Task<ActionResult<IEnumerable<TDto>>> GetAll(int page = 1, int pageSize = 20)
+    public virtual async Task<ActionResult<ListWrapper<TDto>>> GetAll(int page = 1, int pageSize = 20)
     {
         var entities = await EntityService.GetAllAsync(page, pageSize);
 
-        var mappedEntities = Mapper.Map<IEnumerable<TDto>>(entities);
+        var mappedEntities = new ListWrapper<TDto>
+        {
+            Data = Mapper.Map<IEnumerable<TDto>>(entities.Data),
+            Meta = entities.Meta
+        };
 
         return new OkObjectResult(mappedEntities);
     }
@@ -56,9 +64,9 @@ public abstract class BaseController<TEntity, TDto, TInsertDto, TUpdateDto> : Co
     [HttpPatch("{id}")]
     [ProducesResponseType((int)HttpStatusCode.OK)]
     [ProducesResponseType((int)HttpStatusCode.BadRequest)]
-    public virtual async Task<ActionResult<TDto>> Update(Guid id, TUpdateDto dto)
+    public virtual async Task<ActionResult<TDto>> Update(TId id, TUpdateDto dto)
     {
-        if (id == Guid.Empty)
+        if (id?.Equals(default(TId)) ?? false)
             return new BadRequestObjectResult($"{nameof(id)} was not set");
 
         if (dto == null)
@@ -77,7 +85,7 @@ public abstract class BaseController<TEntity, TDto, TInsertDto, TUpdateDto> : Co
 
     [HttpDelete("{id}")]
     [ProducesResponseType((int)HttpStatusCode.NoContent)]
-    public virtual async Task<IActionResult> Delete(Guid id)
+    public virtual async Task<IActionResult> Delete(TId id)
     {
         await EntityService.DeleteAsync(id);
 

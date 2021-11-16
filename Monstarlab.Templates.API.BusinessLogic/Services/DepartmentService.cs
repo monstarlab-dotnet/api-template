@@ -1,8 +1,8 @@
 ﻿namespace Monstarlab.Templates.API.BusinessLogic.Services;
 
-public class DepartmentService : BaseService<Department>
+public class DepartmentService : BaseService<Department, Guid>
 {
-    public DepartmentService(IRepository<Department> repository) : base(repository)
+    public DepartmentService(IEntityRepository<Department, Guid> repository) : base(repository)
     {
     }
 

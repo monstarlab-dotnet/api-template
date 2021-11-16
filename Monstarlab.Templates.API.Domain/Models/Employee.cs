@@ -1,6 +1,6 @@
 ﻿namespace Monstarlab.Templates.API.Domain.Models;
 
-public class Employee : DomainEntity
+public class Employee : EntityBase<Guid>
 {
     [Required]
     public string FirstName { get; set; }

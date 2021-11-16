@@ -1,6 +1,6 @@
 ﻿namespace Monstarlab.Templates.API.Domain.Models;
 
-public class Department : DomainEntity
+public class Department : EntityBase<Guid>
 {
     [Required]
     public string Country { get; set; }

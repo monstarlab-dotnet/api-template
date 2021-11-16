@@ -1,11 +1,7 @@
-﻿using Monstarlab.Templates.API.Web.DTOs.Department;
+﻿namespace Monstarlab.Templates.API.Web.DTOs.Employee;
 
-namespace Monstarlab.Templates.API.Web.DTOs.Employee;
-
-public class EmployeeDto
+public class EmployeeDto : DomainDto
 {
-    public Guid Id { get; set; }
-
     public string FirstName { get; set; }
 
     public string LastName { get; set; }

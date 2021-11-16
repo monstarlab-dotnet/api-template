@@ -7,6 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Monstarlab.EntityFramework.Extension" Version="3.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Monstarlab.Templates.API.Domain\Monstarlab.Templates.API.Domain.csproj" />
   </ItemGroup>
 
