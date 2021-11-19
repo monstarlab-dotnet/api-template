@@ -13,11 +13,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Monstarlab.Templates.API.Do
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Monstarlab.Templates.API.BusinessLogic", "Monstarlab.Templates.API.BusinessLogic\Monstarlab.Templates.API.BusinessLogic.csproj", "{F5A2FBE9-03CC-451C-AF95-EC8CA8B4EF47}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Config", "Config", "{9FF23B62-5A0B-49B6-93E1-0E9027520A88}"
-	ProjectSection(SolutionItems) = preProject
-		NuGet.Config = NuGet.Config
-	EndProjectSection
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
