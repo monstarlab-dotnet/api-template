@@ -1,0 +1,14 @@
+﻿global using AutoMapper;
+global using Microsoft.EntityFrameworkCore;
+global using Microsoft.Extensions.Options;
+global using Monstarlab.EntityFramework.Extension.Models;
+global using Monstarlab.EntityFramework.Extension.Repositories;
+global using OrganizationName.ProjectName.API.BusinessLogic.Interfaces;
+global using OrganizationName.ProjectName.API.BusinessLogic.Services;
+global using OrganizationName.ProjectName.API.Domain.Models;
+global using OrganizationName.ProjectName.API.Infrastructure.Data.Context;
+global using OrganizationName.ProjectName.API.Infrastructure.Data.Repositories;
+global using OrganizationName.ProjectName.API.Web.DTOs.Department;
+global using Microsoft.AspNetCore.Mvc;
+global using System.Linq.Expressions;
+global using System.Net;
