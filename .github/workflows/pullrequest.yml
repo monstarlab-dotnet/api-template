@@ -34,3 +34,7 @@ jobs:
 
     - name: Test
       run: dotnet test Monstarlab.PullRequest/Monstarlab.PullRequest.API.sln --configuration Release --no-restore
+
+    - name: Clean up
+      if: always()
+      run: dotnet new --uninstall ./
