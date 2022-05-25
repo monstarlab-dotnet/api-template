@@ -1,6 +1,6 @@
 {
   "$schema": "https://json.schemastore.org/template",
-  "author": "",
+  "author": "Monstarlab",
   "classifications": ["WebAPI"],
   "name": "MonstarLab API Template",
   "identity": "Monstarlab.Templates.Api",
@@ -8,7 +8,7 @@
   "shortName": "monstarlab-api",
   "tags": {
     "language": "C#",
-    "type": "project"
+    "type": "solution"
   },
   "sourceName": "OrganizationName.ProjectName",
   "preferNameDirectory": true,
