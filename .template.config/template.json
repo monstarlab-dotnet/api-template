@@ -1,0 +1,66 @@
+{
+  "$schema": "https://json.schemastore.org/template",
+  "author": "Monstarlab",
+  "classifications": ["WebAPI"],
+  "name": "MonstarLab API Template",
+  "identity": "Monstarlab.Templates.Api",
+  "groupIdentity": "Monstarlab.Templates.Api",
+  "shortName": "monstarlab-api",
+  "tags": {
+    "language": "C#",
+    "type": "solution"
+  },
+  "sourceName": "OrganizationName.ProjectName",
+  "preferNameDirectory": true,
+  "symbols": {
+    "organizationName": {
+      "type": "derived",
+      "valueSource": "name",
+      "valueTransform": "getOrganizationName",
+      "replaces": "OrganizationName"
+    },
+    "projectName": {
+      "type": "derived",
+      "valueSource": "name",
+      "valueTransform": "getProjectName",
+      "replaces": "ProjectName"
+    }
+  },
+  "forms": {
+    "getOrganizationName": {
+      "identifier": "replace",
+      "pattern": "^(.*)\\.(.*)$",
+      "replacement": "$1"
+    },
+    "getProjectName": {
+      "identifier": "replace",
+      "pattern": "^(.*)\\.(.*)$",
+      "replacement": "$1"
+    }
+  },
+  "sources": [
+    {
+      "source": "./",
+      "target": "./",
+      "exclude": [
+        "**/README.md",
+        "**/nuget.config",
+        "**/LICENSE",
+        "**/.gitattributes",
+        "**/.gitignore",
+        "**/*.nupkg",
+        "**/[Bb]in/**",
+        "**/[Oo]bj/**",
+        ".template.config/**/*",
+        ".vs/**/*",
+        "**/*.filelist",
+        "**/*.user",
+        "**/*.lock.json",
+        "**/.git/**",
+        "**/.github/**",
+        "*.nuspec",
+        "**/node_modules/**"
+      ]
+    }
+  ]
+}

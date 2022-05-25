@@ -17,14 +17,24 @@ jobs:
       with:
         dotnet-version: '6.0.x'
 
+    - name: Install template
+      run: dotnet new --install ./
+
+    - name: Create new solution
+      run: dotnet new monstarlab-api -n "Monstarlab.PullRequest"
+
     - name: Clean
-      run: dotnet clean Monstarlab.Templates.API.sln --configuration Release && dotnet nuget locals all --clear
+      run: dotnet clean Monstarlab.PullRequest/Monstarlab.PullRequest.API.sln --configuration Release && dotnet nuget locals all --clear
 
     - name: Install dependencies
-      run: dotnet restore Monstarlab.Templates.API.sln
+      run: dotnet restore Monstarlab.PullRequest/Monstarlab.PullRequest.API.sln
 
     - name: Build
-      run: dotnet build Monstarlab.Templates.API.sln --configuration Release --no-restore
+      run: dotnet build Monstarlab.PullRequest/Monstarlab.PullRequest.API.sln --configuration Release --no-restore
 
     - name: Test
-      run: dotnet test Monstarlab.Templates.API.sln --configuration Release --no-restore
+      run: dotnet test Monstarlab.PullRequest/Monstarlab.PullRequest.API.sln --configuration Release --no-restore
+
+    - name: Clean up
+      if: always()
+      run: dotnet new --uninstall ./
