@@ -18,13 +18,13 @@ jobs:
         dotnet-version: '6.0.x'
 
     - name: Clean
-      run: dotnet clean Monstarlab.Templates.API.sln --configuration Release && dotnet nuget locals all --clear
+      run: dotnet clean OrganizationName.ProjectName.API.sln --configuration Release && dotnet nuget locals all --clear
 
     - name: Install dependencies
-      run: dotnet restore Monstarlab.Templates.API.sln
+      run: dotnet restore OrganizationName.ProjectName.API.sln
 
     - name: Build
-      run: dotnet build Monstarlab.Templates.API.sln --configuration Release --no-restore
+      run: dotnet build OrganizationName.ProjectName.API.sln --configuration Release --no-restore
 
     - name: Test
-      run: dotnet test Monstarlab.Templates.API.sln --configuration Release --no-restore
+      run: dotnet test OrganizationName.ProjectName.API.sln --configuration Release --no-restore
